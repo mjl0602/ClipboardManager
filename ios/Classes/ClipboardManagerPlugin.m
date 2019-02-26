@@ -1,9 +1,9 @@
 #import "ClipboardManagerPlugin.h"
 
 @implementation ClipboardManagerPlugin
-+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftClipboardManagerPlugin registerWithRegistrar:registrar];
-}
+//+ (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
+//  [SwiftClipboardManagerPlugin registerWithRegistrar:registrar];
+//}
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
   FlutterMethodChannel* channel = [FlutterMethodChannel
@@ -17,7 +17,7 @@
     if ([@"copyToClipBoard" isEqualToString:call.method]) {
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
         pasteboard.string = call.arguments;
-        result(true);
+        result(@(true));
     }
 }
 @end
